@@ -27,7 +27,6 @@ export default function EditEvent() {
       await queryClient.cancelQueries({ queryKey: ["events", id] });
       const prevEvent = queryClient.getQueryData(["events", id]);
       queryClient.setQueryData(["events", id], newEvent);
-
       return { prevEvent };
     },
     onError: (error, data, context) => {
@@ -42,8 +41,7 @@ export default function EditEvent() {
       id,
       event: formData,
     });
-
-    navigate("./");
+    navigate("../");
   }
 
   function handleClose() {
